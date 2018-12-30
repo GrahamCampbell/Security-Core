@@ -1,6 +1,6 @@
 {
-    "name": "graham-campbell/security",
-    "description": "Security Is A Port Of The Security Class From Codeigniter 3 For General Use",
+    "name": "graham-campbell/security-core",
+    "description": "Security Core Is A Port Of The Security Class From Codeigniter 3 For General Use",
     "keywords": ["laravel", "framework", "security", "codeigniter", "Security", "Security Core", "Security-Core", "Graham Campbell", "GrahamCampbell"],
     "license": "MIT",
     "authors": [
