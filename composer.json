@@ -1,0 +1,39 @@
+{
+    "name": "graham-campbell/security",
+    "description": "Security Is A Port Of The Security Class From Codeigniter 3 For General Use",
+    "keywords": ["laravel", "framework", "security", "codeigniter", "Security", "Security Core", "Security-Core", "Graham Campbell", "GrahamCampbell"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@alt-three.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+        "graham-campbell/analyzer": "^2.1",
+        "phpunit/phpunit": "^6.5|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GrahamCampbell\\SecurityCore\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GrahamCampbell\\Tests\\SecurityCore\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

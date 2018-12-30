@@ -1,0 +1,52 @@
+Security Core
+=============
+
+Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a port of the security class from [CodeIgniter 3](https://codeigniter.com) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Security-Core/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
+
+<p align="center">
+<a href="https://styleci.io/repos/163549667"><img src="https://styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
+<a href="https://travis-ci.org/GrahamCampbell/Security-Core"><img src="https://img.shields.io/travis/GrahamCampbell/Security-Core/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Security-Core/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Security-Core.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Security-Core"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Security-Core.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Security-Core/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Security-Core.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
+
+
+## Installation
+
+Security Core requires [PHP](https://php.net) 7.
+
+To get the latest version, simply require the project using [Composer](https://getcomposer.org):
+
+```bash
+$ composer require graham-campbell/security-core
+```
+
+
+## Usage
+
+To sanitize your string, simply call the `clean` method on the `Security` class.
+
+```php
+<?php
+
+use GrahamCampbell\SecurityCore\Security;
+
+// $clean = '<span xss=removed>X</span>';
+$clean = (new Security)->clean('<span/onmouseover=confirm(1)>X</span>');
+```
+
+For usage in Laravel, check out [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). 
+
+
+## Security
+
+If you discover a security vulnerability within this package, please send an e-mail to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed.
+
+
+## License
+
+Security Core is licensed under [The MIT License (MIT)](LICENSE).
+
+Security Core contains code taken from CodeIgniter, also licensed under [The MIT License (MIT)](CODEIGNITER).
