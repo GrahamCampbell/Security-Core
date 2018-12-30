@@ -224,21 +224,21 @@ class SecurityTest extends TestCase
                 "\n>&lt;!-\n<b d=\"'e><iframe onload=alert&#40;1&#41; src=x>\n<a HREF=\">\n",
             ],
             [
-                "<meta charset=\"x-imap4-modified-utf7\">&<script&S1&TS&1>alert&A7&(1)&R&UA;&&<&A9&11/script&X&>",
-                "&lt;meta charset=\"x-imap4-modified-utf7\"&gt;&[removed]alert&A7&(1)&R&UA;&&&lt;&A9&11/script&X&>",
+                '<meta charset="x-imap4-modified-utf7">&<script&S1&TS&1>alert&A7&(1)&R&UA;&&<&A9&11/script&X&>',
+                '&lt;meta charset="x-imap4-modified-utf7"&gt;&[removed]alert&A7&(1)&R&UA;&&&lt;&A9&11/script&X&>',
             ],
             [
-                "<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->",
-                "&lt;!--\\x3E<img src=xxx:x xss=removed> --&gt;",
+                '<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->',
+                '&lt;!--\\x3E<img src=xxx:x xss=removed> --&gt;',
             ],
             [
                 '--><!-- --\x3E> <img src=xxx:x onerror=javascript:alert(1)> -->',
                 '--&gt;&lt;!-- --\x3E> <img src=xxx:x xss=removed> --&gt;',
             ],
             [
-                "<svg/onload=alert(1)",
-                "&lt;svg/onload=alert&#40;1&#41;",
-            ]
+                '<svg/onload=alert(1)',
+                '&lt;svg/onload=alert&#40;1&#41;',
+            ],
         ];
 
         return $cases;
