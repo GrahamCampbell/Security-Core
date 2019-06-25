@@ -1,7 +1,7 @@
 Security Core
 =============
 
-Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a port of the security class from [CodeIgniter 3](https://codeigniter.com) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [license](LICENSE), [security policy](.github/SECURITY.md), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
+Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a port of the security class from [CodeIgniter 3](https://codeigniter.com) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Security-Core/releases), [security policy](https://github.com/GrahamCampbell/Security-Core/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
 <p align="center">
 <a href="https://styleci.io/repos/163549667"><img src="https://styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
@@ -42,11 +42,9 @@ For usage in Laravel, check out [Laravel Security](https://github.com/GrahamCamp
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full policy [here](.github/SECURITY.md).
+If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/GrahamCampbell/Security-Core/security/policy).
 
 
 ## License
 
 Security Core is licensed under [The MIT License (MIT)](LICENSE).
-
-Security Core contains code taken from CodeIgniter, also licensed under [The MIT License (MIT)](CODEIGNITER).
