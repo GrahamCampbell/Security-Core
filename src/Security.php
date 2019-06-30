@@ -50,7 +50,7 @@ class Security
      *
      * @param string|string[] $str
      *
-     * @return string
+     * @return string|string[]
      */
     public function clean($str)
     {
