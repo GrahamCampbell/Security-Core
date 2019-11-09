@@ -20,9 +20,9 @@ use PHPUnit\Framework\TestCase;
 /**
  * This is the analysis test class.
  *
- * @author Graham Campbell <graham@alt-three.com>
+ * @internal
  */
-class AnalysisTest extends TestCase
+final class AnalysisTest extends TestCase
 {
     use AnalysisTrait;
 
@@ -34,8 +34,8 @@ class AnalysisTest extends TestCase
     protected function getPaths()
     {
         return [
-            realpath(__DIR__.'/../src'),
-            realpath(__DIR__),
+            \realpath(__DIR__ . '/../src'),
+            \realpath(__DIR__),
         ];
     }
 }
