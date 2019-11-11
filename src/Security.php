@@ -26,7 +26,7 @@ use voku\helper\AntiXSS;
  * @author Derek Jones <derek.jones@ellislab.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
-final class Security
+class Security
 {
     /**
      * @var AntiXSS
@@ -36,13 +36,10 @@ final class Security
     /**
      * Create a new security instance.
      *
-     * @param string[]|null $evil
-     * @param string        $replacement
-     * @param AntiXSS|null  $antiXss
-     *
-     * @return void
+     * @param string[]|null             $evil
+     * @param string|null               $replacement
      */
-    public function __construct(array $evil = null, string $replacement = '', AntiXSS $antiXss = null)
+    public function __construct(array $evil = null, string $replacement = null)
     {
         $evilRegex = [];
         if ($evil && $evil !== []) {
@@ -51,14 +48,22 @@ final class Security
             }
         }
 
-        if ($antiXss === null) {
-            $this->antiXss = new AntiXSS();
-        } else {
-            $this->antiXss = $antiXss;
-        }
-
-        $this->antiXss->setReplacement($replacement);
+        $this->antiXss = new AntiXSS();
+        $this->antiXss->setReplacement($replacement ?? '');
         $this->antiXss->addNeverAllowedRegex($evilRegex);
+    }
+
+    /**
+     * @param \voku\helper\AntiXSS $antiXSS
+     *
+     * @return static
+     */
+    public function createFromAntiXss(AntiXSS $antiXSS): self
+    {
+        $security = new static();
+        $security->antiXss = $antiXSS;
+
+        return $security;
     }
 
     /**

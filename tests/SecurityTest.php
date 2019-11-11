@@ -269,10 +269,14 @@ class SecurityTest extends TestCase
 
     public function testCleanWithCustomAntiXss()
     {
-        $antiXss = new AntiXSS();
-        $antiXss->removeEvilAttributes(array('style')); // allow style-attributes
+        $replacer = '[removed]';
 
-        $security = new Security(['test.*'], '[removed]', $antiXss);
+        $antiXss = new AntiXSS();
+        $antiXss->removeEvilAttributes(['style']); // allow style-attributes
+        $antiXss->setReplacement($replacer);
+        $antiXss->addNeverAllowedRegex(['test.*' => $replacer]);
+
+        $security = Security::createFromAntiXss($antiXss);
 
         $return = $security->clean(['<script>', 'testFoo', '123', ['<abc style="border: 0;">']]);
 
