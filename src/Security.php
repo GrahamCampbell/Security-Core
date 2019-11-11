@@ -36,8 +36,8 @@ class Security
     /**
      * Create a new security instance.
      *
-     * @param string[]|null             $evil
-     * @param string|null               $replacement
+     * @param string[]|null $evil
+     * @param string|null   $replacement
      */
     public function __construct(array $evil = null, string $replacement = null)
     {
@@ -67,7 +67,7 @@ class Security
     }
 
     /**
-     * XSS clean
+     * XSS clean.
      *
      * @param string|string[] $str
      *
