@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\SecurityCore;
 
 use voku\helper\AntiXSS;
+use voku\helper\UTF8;
 
 /**
  * This is the security class.
@@ -75,6 +76,31 @@ class Security
      */
     public function clean($str)
     {
-        return $this->antiXss->xss_clean($str);
+        $str = $this->antiXss->xss_clean($str);
+
+        // remove invisible chars anyway
+        if ($this->antiXss->isXssFound() === false) {
+            $str = $this->cleanInvisibleCharacters($str);
+        }
+
+        return $str;
+    }
+
+    /**
+     * @param string|string[] $str
+     *
+     * @return string|string[]
+     */
+    private function cleanInvisibleCharacters($str)
+    {
+        if (\is_array($str)) {
+            foreach ($str as $key => &$value) {
+                $str[$key] = $this->cleanInvisibleCharacters($value);
+            }
+
+            return $str;
+        }
+
+        return UTF8::remove_invisible_characters($str, true, '');
     }
 }
