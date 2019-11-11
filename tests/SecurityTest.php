@@ -218,7 +218,7 @@ class SecurityTest extends TestCase
 
             ],
             [
-                '<foo prefixOnAttribute="bar">%0b' . "\0",
+                '<foo prefixOnAttribute="bar">%0b'."\0",
                 '<foo prefixOnAttribute="bar">',
             ],
             [
@@ -230,7 +230,7 @@ class SecurityTest extends TestCase
                 '&lt;meta charset="x-imap4-modified-utf7"&gt;&alert&A7&(1)&R&UA;&&&lt;&A9&11/script&X&&gt;',
             ],
             [
-                '<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->%0b' . "\0",
+                '<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->%0b'."\0",
                 '&lt;!--\x3E<img > -->  ',
             ],
             [
