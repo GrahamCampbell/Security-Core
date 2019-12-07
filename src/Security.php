@@ -38,9 +38,9 @@ class Security
      * Create a new security instance.
      *
      * @param string[]|null $evil
-     * @param string|null   $replacement
+     * @param string        $replacement
      */
-    public function __construct(array $evil = null, string $replacement = null)
+    public function __construct(array $evil = null, string $replacement = '')
     {
         $evilRegex = [];
         if ($evil && $evil !== []) {
@@ -95,12 +95,12 @@ class Security
     {
         if (\is_array($str)) {
             foreach ($str as $key => &$value) {
-                $str[$key] = $this->cleanInvisibleCharacters($value);
+                $value = $this->cleanInvisibleCharacters($value);
             }
 
             return $str;
         }
 
-        return UTF8::remove_invisible_characters($str, true, '');
+        return UTF8::remove_invisible_characters($str, true);
     }
 }
