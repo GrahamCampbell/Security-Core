@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0 (08/12/2019)
+
+* Switched to voku/anti-xss
+
+
 ## V1.0.2 (23/08/2019)
 
 * Support PHP 7.0 - 7.4 only
