@@ -256,13 +256,34 @@ class SecurityTest extends TestCase
         $this->assertSame($output, $return);
     }
 
+    /**
+     * @dataProvider snippetProvider
+     */
+    public function testCleanStringWithExplictEvilList(string $input, string $output)
+    {
+        $evil = [
+            '(?<!\w)on\w*',
+            'style',
+            'xmlns',
+            'formaction',
+            'form',
+            'xlink:href',
+            'FSCommand',
+            'seekSegmentTime',
+        ];
+
+        $return = Security::create($evil)->clean($input);
+
+        $this->assertSame($output, $return);
+    }
+
     public function testCleanArray()
     {
-        $security = Security::create(['test.*'], '[removed]');
+        $security = Security::create(['test'], '[removed]');
 
-        $return = $security->clean(['<script>', 'testFoo', '123', ['abc']]);
+        $return = $security->clean(['<script>', '<li test="alert();">', '123', ['abc']]);
 
-        $this->assertSame(['[removed]', '[removed]', '123', ['abc']], $return);
+        $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc']], $return);
     }
 
     public function testCleanWithCustomAntiXss()

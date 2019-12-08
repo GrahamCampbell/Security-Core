@@ -51,7 +51,7 @@ class Security
      *
      * @return \GrahamCampbell\SecurityCore\Security
      */
-    public function create(array $evil = null, string $replacement = null)
+    public static function create(array $evil = null, string $replacement = null)
     {
         $antiXss = new AntiXSS();
 
@@ -60,13 +60,7 @@ class Security
         }
 
         if ($evil !== null) {
-            $evilRegex = [];
-
-            foreach ($evil as $regex) {
-                $evilRegex[$regex] = $replacement ?? '';
-            }
-
-            $antiXss->addNeverAllowedRegex($evilRegex);
+            $antiXss->addEvilAttributes($evil);
         }
 
         return new self($antiXss);
