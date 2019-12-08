@@ -1,7 +1,7 @@
 Security Core
 =============
 
-Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a port of the security class from [CodeIgniter 3](https://codeigniter.com) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Security-Core/releases), [security policy](https://github.com/GrahamCampbell/Security-Core/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
+Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), wrapper of [voku/anti-xss](https://github.com/voku/anti-xss) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Security-Core/releases), [security policy](https://github.com/GrahamCampbell/Security-Core/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
 <p align="center">
 <a href="https://styleci.io/repos/163549667"><img src="https://styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
@@ -24,6 +24,11 @@ $ composer require graham-campbell/security-core
 ```
 
 
+## V1 vs V2
+
+V1 was a port of the security class from [CodeIgniter 3](https://codeigniter.com). CodeIgniter 4 will not be keeping this class, and so V2 now functions as a wrapper of [voku/anti-xss](https://github.com/voku/anti-xss), which superseeds CodeIgniter's security class.
+
+
 ## Usage
 
 To sanitize your string, simply call the `clean` method on the `Security` class.
@@ -33,8 +38,8 @@ To sanitize your string, simply call the `clean` method on the `Security` class.
 
 use GrahamCampbell\SecurityCore\Security;
 
-// $clean = '<span xss=removed>X</span>';
-$clean = (new Security)->clean('<span/onmouseover=confirm(1)>X</span>');
+// $clean = '<span/>X</span>';
+$clean = Security::create()->clean('<span/onmouseover=confirm(1)>X</span>');
 ```
 
 For usage in Laravel, check out [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). 
