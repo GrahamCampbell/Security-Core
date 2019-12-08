@@ -55,15 +55,19 @@ class Security
     {
         $antiXss = new AntiXSS();
 
-        $antiXss->setReplacement($replacement === null ? '' : $replacement);
-
-        $evilRegex = [];
-
-        foreach ((array) $evil as $regex) {
-            $evilRegex[$regex] = $replacement;
+        if ($replacement !== null) {
+            $antiXss->setReplacement($replacement);
         }
 
-        $antiXss->addNeverAllowedRegex($evilRegex);
+        if ($evil !== null) {
+            $evilRegex = [];
+
+            foreach ($evil as $regex) {
+                $evilRegex[$regex] = $replacement ?? '';
+            }
+
+            $antiXss->addNeverAllowedRegex($evilRegex);
+        }
 
         return new self($antiXss);
     }
