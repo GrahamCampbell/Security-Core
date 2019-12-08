@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.1 (08/12/2019)
+
+* Fixed create method
+
+
 ## V2.0 (08/12/2019)
 
 * Switched to voku/anti-xss
