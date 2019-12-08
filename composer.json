@@ -10,7 +10,9 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "voku/anti-xss": "^4.1",
+        "voku/portable-utf8": "^5.4"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^2.1",
