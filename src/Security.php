@@ -6,7 +6,6 @@ declare(strict_types=1);
  * This file is part of Security Core.
  *
  * (c) Graham Campbell <graham@alt-three.com>
- * (c) British Columbia Institute of Technology
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,87 +19,91 @@ use voku\helper\UTF8;
 /**
  * This is the security class.
  *
- * Some code in this class it taken from CodeIgniter 3.
- * See the original here: http://bit.ly/1oQnpjn.
- *
- * @author Andrey Andreev <narf@bofh.bg>
- * @author Derek Jones <derek.jones@ellislab.com>
  * @author Graham Campbell <graham@alt-three.com>
+ * @author Lars Moelleken <lars@moelleken.org>
  */
 class Security
 {
     /**
-     * @var AntiXSS
+     * The anti XSS instance.
+     *
+     * @var \voku\helper\AntiXSS
      */
     private $antiXss;
 
     /**
      * Create a new security instance.
      *
-     * @param string[]|null $evil
-     * @param string        $replacement
+     * @param \voku\helper\AntiXSS $antiXss
+     *
+     * @return void
      */
-    public function __construct(array $evil = null, string $replacement = '')
+    public function __construct(AntiXSS $antiXss)
     {
-        $evilRegex = [];
-        if ($evil && $evil !== []) {
-            foreach ($evil as $regex) {
-                $evilRegex[$regex] = $replacement;
-            }
-        }
-
-        $this->antiXss = new AntiXSS();
-        $this->antiXss->setReplacement($replacement ?? '');
-        $this->antiXss->addNeverAllowedRegex($evilRegex);
+        $this->antiXss = $antiXss;
     }
 
     /**
-     * @param \voku\helper\AntiXSS $antiXSS
+     * Create a new security instance.
      *
-     * @return static
+     * @param string[]|null $evil
+     * @param string|null   $replacement
+     *
+     * @return \GrahamCampbell\SecurityCore\Security
      */
-    public function createFromAntiXss(AntiXSS $antiXSS): self
+    public function create(array $evil = null, string $replacement = null)
     {
-        $security = new static();
-        $security->antiXss = $antiXSS;
+        $antiXss = new AntiXSS();
 
-        return $security;
+        $antiXss->setReplacement($replacement === null ? '' : $replacement);
+
+        $evilRegex = [];
+
+        foreach ((array) $evil as $regex) {
+            $evilRegex[$regex] = $replacement;
+        }
+
+        $antiXss->addNeverAllowedRegex($evilRegex);
+
+        return new self($antiXss);
     }
 
     /**
      * XSS clean.
      *
-     * @param string|string[] $str
+     * @param string|string[] $input
      *
      * @return string|string[]
      */
-    public function clean($str)
+    public function clean($input)
     {
-        $str = $this->antiXss->xss_clean($str);
+        $output = $this->antiXss->xss_clean($input);
 
         // remove invisible chars anyway
         if ($this->antiXss->isXssFound() === false) {
-            $str = $this->cleanInvisibleCharacters($str);
+            return self::cleanInvisibleCharacters($output);
         }
 
-        return $str;
+        return $output;
     }
 
     /**
-     * @param string|string[] $str
+     * Clean invisible characters from the input.
+     *
+     * @param string|string[] $input
      *
      * @return string|string[]
      */
-    private function cleanInvisibleCharacters($str)
+    private static function cleanInvisibleCharacters($input)
     {
-        if (\is_array($str)) {
-            foreach ($str as $key => &$value) {
-                $value = $this->cleanInvisibleCharacters($value);
+        if (is_array($input)) {
+            foreach ($input as $key => &$value) {
+                $value = self::cleanInvisibleCharacters($value);
             }
 
-            return $str;
+            return $input;
         }
 
-        return UTF8::remove_invisible_characters($str, true);
+        return UTF8::remove_invisible_characters($input, true);
     }
 }

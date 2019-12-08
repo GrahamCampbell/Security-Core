@@ -6,7 +6,6 @@ declare(strict_types=1);
  * This file is part of Security Core.
  *
  * (c) Graham Campbell <graham@alt-three.com>
- * (c) British Columbia Institute of Technology
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -22,6 +21,7 @@ use voku\helper\AntiXSS;
  * This is the security test class.
  *
  * @author Graham Campbell <graham@alt-three.com>
+ * @author Lars Moelleken <lars@moelleken.org>
  */
 class SecurityTest extends TestCase
 {
@@ -251,16 +251,14 @@ class SecurityTest extends TestCase
      */
     public function testCleanString(string $input, string $output)
     {
-        $security = $this->getSecurity();
-
-        $return = $security->clean($input);
+        $return = Security::create()->clean($input);
 
         $this->assertSame($output, $return);
     }
 
     public function testCleanArray()
     {
-        $security = new Security(['test.*'], '[removed]');
+        $security = Security::create(['test.*'], '[removed]');
 
         $return = $security->clean(['<script>', 'testFoo', '123', ['abc']]);
 
@@ -276,15 +274,10 @@ class SecurityTest extends TestCase
         $antiXss->setReplacement($replacer);
         $antiXss->addNeverAllowedRegex(['test.*' => $replacer]);
 
-        $security = Security::createFromAntiXss($antiXss);
+        $security = new Security($antiXss);
 
         $return = $security->clean(['<script>', 'testFoo', '123', ['<abc style="border: 0;">']]);
 
         $this->assertSame(['[removed]', '[removed]', '123', ['<abc style="border: 0;">']], $return);
-    }
-
-    protected function getSecurity()
-    {
-        return new Security();
     }
 }
