@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/security-core",
-    "description": "Security Core Is A Port Of The Security Class From Codeigniter 3 For General Use",
+    "description": "Security Core Is A Wrapper Of voku/anti-xss For General Use",
     "keywords": ["laravel", "framework", "security", "xss", "anti-xss", "Security", "Security Core", "Security-Core", "Graham Campbell", "GrahamCampbell"],
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
         "voku/portable-utf8": "^5.4"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.1",
+        "graham-campbell/analyzer": "^2.4",
         "phpunit/phpunit": "^6.5|^7.0|^8.0"
     },
     "autoload": {
