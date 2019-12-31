@@ -122,7 +122,7 @@ class SecurityTest extends TestCase
             ],
             [
                 'http://www.<script abc>setTimeout(\'confirm(1)\',1)</script .com>',
-                'http://www.setTimeout(\'confirm&#40;1&#41;\',1).com',
+                'http://www.setTimeout(\'confirm&#40;1&#41;\',1).com>',
             ],
             [
                 '<style/onload    =    !-alert&#x28;1&#x29;>',
