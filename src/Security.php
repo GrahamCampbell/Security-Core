@@ -69,9 +69,9 @@ class Security
     /**
      * XSS clean.
      *
-     * @param string|string[] $input
+     * @param string|array $input
      *
-     * @return string|string[]
+     * @return string|array
      */
     public function clean($input)
     {
@@ -88,9 +88,9 @@ class Security
     /**
      * Clean invisible characters from the input.
      *
-     * @param string|string[] $input
+     * @param string|array $input
      *
-     * @return string|string[]
+     * @return string|array
      */
     private static function cleanInvisibleCharacters($input)
     {

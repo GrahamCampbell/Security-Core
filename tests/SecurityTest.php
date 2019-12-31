@@ -286,6 +286,15 @@ class SecurityTest extends TestCase
         $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc']], $return);
     }
 
+    public function testCleanDeeplyNestedArray()
+    {
+        $security = Security::create(['test'], '[removed]');
+
+        $return = $security->clean(['<script>', '<li test="alert();">', '123', ['abc', [[['<li test="alert();">']]]]]);
+
+        $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc', [[['<li [removed]>']]]]], $return);
+    }
+
     public function testCleanWithCustomAntiXss()
     {
         $replacer = '[removed]';
