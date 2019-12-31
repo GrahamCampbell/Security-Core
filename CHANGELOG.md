@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.2 (31/12/2019)
+
+* Fixed phpdoc of clean
+
+
 ## V2.0.1 (08/12/2019)
 
 * Fixed create method
