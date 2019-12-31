@@ -3,6 +3,8 @@ Security Core
 
 Security Core was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), wrapper of [voku/anti-xss](https://github.com/voku/anti-xss) for general use. Laravel wrappers for this package exist as [Laravel Security](https://github.com/GrahamCampbell/Laravel-Security) and [Laravel Binput](https://github.com/GrahamCampbell/Laravel-Binput). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Security-Core/releases), [security policy](https://github.com/GrahamCampbell/Security-Core/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
+![Banner](https://user-images.githubusercontent.com/2829600/71477094-0f3c7780-27e0-11ea-8a35-139e4445155e.png)
+
 <p align="center">
 <a href="https://styleci.io/repos/163549667"><img src="https://styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
 <a href="https://travis-ci.org/GrahamCampbell/Security-Core"><img src="https://img.shields.io/travis/GrahamCampbell/Security-Core/master.svg?style=flat-square" alt="Build Status"></img></a>
