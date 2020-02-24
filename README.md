@@ -7,7 +7,7 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 
 <p align="center">
 <a href="https://styleci.io/repos/163549667"><img src="https://styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
-<a href="https://travis-ci.org/GrahamCampbell/Security-Core"><img src="https://img.shields.io/travis/GrahamCampbell/Security-Core/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://github.com/GrahamCampbell/Security-Core/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Security-Core/Tests?style=flat-square" alt="Build Status"></img></a>
 <a href="https://scrutinizer-ci.com/g/GrahamCampbell/Security-Core/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Security-Core.svg?style=flat-square" alt="Coverage Status"></img></a>
 <a href="https://scrutinizer-ci.com/g/GrahamCampbell/Security-Core"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Security-Core.svg?style=flat-square" alt="Quality Score"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
