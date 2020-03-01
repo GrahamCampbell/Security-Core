@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "voku/anti-xss": "^4.1.21",
-        "voku/portable-utf8": "^5.4.37"
+        "php": "^7.2.5",
+        "voku/anti-xss": "~4.1.22",
+        "voku/portable-utf8": "^5.4.40"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.4",
-        "phpunit/phpunit": "^6.5|^7.5|^8.4|^9.0"
+        "graham-campbell/analyzer": "^3.0",
+        "phpunit/phpunit": "^8.5|^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-master": "3.0-dev"
         }
     },
     "minimum-stability": "dev",

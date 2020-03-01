@@ -17,7 +17,7 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-Security Core requires [PHP](https://php.net) 7.0-7.4.
+Security Core requires [PHP](https://php.net) 7.2-7.4.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
@@ -26,9 +26,9 @@ $ composer require graham-campbell/security-core
 ```
 
 
-## V1 vs V2
+## V1 vs V2/3
 
-V1 was a port of the security class from [CodeIgniter 3](https://codeigniter.com). CodeIgniter 4 will not be keeping this class, and so V2 now functions as a wrapper of [voku/anti-xss](https://github.com/voku/anti-xss), which superseeds CodeIgniter's security class.
+V1 was a port of the security class from [CodeIgniter 3](https://codeigniter.com). CodeIgniter 4 will not be keeping this class, and so V2/3 now functions as a wrapper of [voku/anti-xss](https://github.com/voku/anti-xss), which superseeds CodeIgniter's security class.
 
 
 ## Usage

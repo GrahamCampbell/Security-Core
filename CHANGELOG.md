@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.0 (Upcoming)
+
+* Dropped PHP 7.0 and 7.1
+* Pinned to voku/anti-xss 4.1.x
+
+
 ## V2.0.2 (31/12/2019)
 
 * Fixed phpdoc of clean
