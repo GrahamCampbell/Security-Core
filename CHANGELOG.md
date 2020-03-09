@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.3 (09/03/2020)
+
+* Use latest anti-xss
+
+
 ## V2.0.2 (31/12/2019)
 
 * Fixed phpdoc of clean
