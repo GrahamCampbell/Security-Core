@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.0.1 (Upcoming)
+
+* Use latest anti-xss
+
+
 ## V3.0 (01/03/2020)
 
 * Dropped PHP 7.0 and 7.1

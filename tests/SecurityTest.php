@@ -102,7 +102,7 @@ class SecurityTest extends TestCase
             ],
             [
                 '<form/action=javascript&#x0003A;eval(setTimeout(confirm(1)))><input/type=submit>',
-                '&lt;form/action=(setTimeout(confirm&#40;1&#41;))&gt;&lt;input/type=submit>',
+                '&lt;form/action=(setTimeout&#40;confirm(1&#41;))&gt;&lt;input/type=submit>',
             ],
             [
                 '<body/onload=this.onload=document.body.innerHTML=alert&lpar;1&rpar;>',
@@ -122,7 +122,7 @@ class SecurityTest extends TestCase
             ],
             [
                 'http://www.<script abc>setTimeout(\'confirm(1)\',1)</script .com>',
-                'http://www.setTimeout(\'confirm&#40;1&#41;\',1).com>',
+                'http://www.setTimeout&#40;\'confirm(1&#41;\',1).com>',
             ],
             [
                 '<style/onload    =    !-alert&#x28;1&#x29;>',
@@ -231,11 +231,11 @@ class SecurityTest extends TestCase
             ],
             [
                 '<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->%0b'."\0",
-                '&lt;!--\x3E<img > -->  ',
+                '&lt;!--\x3E<img > --&gt;  ',
             ],
             [
                 '--><!-- --\x3E> <img src=xxx:x onerror=javascript:alert(1)> -->',
-                '-->&lt;!-- --\x3E> <img > -->',
+                '-->&lt;!-- --\x3E> <img > --&gt;',
             ],
             [
                 '<svg/onload=alert(1)',
