@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.0.1 (Upcoming)
+## V3.0.1 (09/03/2020)
 
 * Use latest anti-xss
 
