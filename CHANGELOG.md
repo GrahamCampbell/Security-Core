@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.4 (Upcoming)
+
+* Updated funding information
+
+
 ## V2.0.3 (09/03/2020)
 
 * Use latest anti-xss
@@ -24,7 +29,7 @@ CHANGE LOG
 
 ## V1.0.2 (23/08/2019)
 
-* Support PHP 7.0 - 7.4 only
+* Support PHP 7.0 - 7.4
 
 
 ## V1.0.1 (30/06/2019)
