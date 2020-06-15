@@ -13,17 +13,24 @@ jobs:
 
     strategy:
       matrix:
-        php: [7.2, 7.3, 7.4]
+        php: ["7.2", "7.3", "7.4", "8.0"]
 
     name: PHP ${{ matrix.php }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Pull Docker Image
-      run: docker pull registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}
-    - name: Run Composer
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} install --prefer-dist -n -o
-    - name: Run PHPUnit
+    - name: Run Composer PHP 7
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-base update -n -o
+      if: "matrix.php < 8"
+    - name: Run Composer PHP 8
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-base update -n -o --ignore-platform-reqs
+      if: "matrix.php >= 8"
+    - name: Run PHPUnit PHP 7
       run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} --coverage-clover build/logs/clover.xml
-    - name: Upload Coverage
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint ocular registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} code-coverage:upload --format=php-clover build/logs/clover.xml
+      if: "matrix.php < 8"
+    - name: Run PHPUnit PHP 8
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-cli
+      if: "matrix.php >= 8"
+    - name: Upload Coverage PHP 7
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint ocular registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-base code-coverage:upload --format=php-clover build/logs/clover.xml
+      if: "matrix.php < 8"
