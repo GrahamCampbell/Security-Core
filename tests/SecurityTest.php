@@ -90,19 +90,19 @@ class SecurityTest extends TestCase
             ],
             [
                 '<iframe/src="data:text/html,<iframe%09onload=confirm(1);>">',
-                '&lt;iframe/src="data:text/html,&lt;iframe	>">',
+                '&lt;iframe/src="data:text/html,<iframe >">',
             ],
             [
                 '<math><a/xlink:href=javascript:prompt(1)>X',
-                '&lt;math&gt;&lt;a/>X',
+                '&lt;math&gt;<a/>X',
             ],
             [
                 '<input/type="image"/value=""`<span/onmouseover=\'confirm(1)\'>X`</span>',
-                '&lt;input/type="image"/value=""`&lt;span/>X`</span>',
+                '&lt;input/type="image"/value=""`<span/>X`</span>',
             ],
             [
                 '<form/action=javascript&#x0003A;eval(setTimeout(confirm(1)))><input/type=submit>',
-                '&lt;form/action=(setTimeout&#40;confirm(1&#41;))&gt;&lt;input/type=submit>',
+                '&lt;form/action=(setTimeout&#40;confirm(1&#41;))&gt;&lt;input/type=submit&gt;',
             ],
             [
                 '<body/onload=this.onload=document.body.innerHTML=alert&lpar;1&rpar;>',
@@ -114,11 +114,11 @@ class SecurityTest extends TestCase
             ],
             [
                 '<object/type="text/x-scriptlet"/data="data:X,&#60script&#62setInterval&lpar;\'prompt(1)\',10&rpar;&#60/script&#62"></object>',
-                '&lt;object/type="text/x-scriptlet"/data="data:X,"&gt;&lt;/object>',
+                '&lt;object/type="text/x-scriptlet"/data="data:X,"&gt;&lt;/object&gt;',
             ],
             [
                 '<i<f<r<a<m<e><iframe/onload=confirm(1);></i>f>r>a>m>e>',
-                '<i&lt;f&lt;r&lt;a&lt;me>&lt;iframe/&gt;&lt;/i>f>r>a>m>e>',
+                '<i&lt;f&lt;r&lt;a&lt;me>&lt;iframe/&gt;</i>f>r>a>m>e>',
             ],
             [
                 'http://www.<script abc>setTimeout(\'confirm(1)\',1)</script .com>',
@@ -138,7 +138,7 @@ class SecurityTest extends TestCase
             ],
             [
                 '<form/action=javascript&#x3A;void(1)&quest;void(1)&colon;alert(1)><input/type=\'submit\'>',
-                '&lt;form/action=(1)?void(1):alert&#40;1&#41;&gt;&lt;input/type=\'submit\'>',
+                '&lt;form/action=(1)?void(1):alert&#40;1&#41;&gt;&lt;input/type=\'submit\'&gt;',
             ],
             [
                 '<iframe/srcdoc=\'&lt;iframe&sol;onload&equals;confirm(&sol;&iexcl;&hearts;&xcup;&sol;)&gt;\'>',
