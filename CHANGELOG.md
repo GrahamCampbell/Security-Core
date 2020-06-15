@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.1 (13/04/2020)
+
+* Provisional PHP 8.0 support
+* Pinned to voku/anti-xss `~4.1.25`
+
+
 ## V3.0.2 (13/04/2020)
 
 * Updated funding information
