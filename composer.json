@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "php": "^7.2.5|^8.0",
+        "php": "^7.2.5 || ^8.0",
         "voku/anti-xss": "~4.1.25",
         "voku/portable-utf8": "^5.4.45"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^3.0",
-        "phpunit/phpunit": "^8.5|^9.0"
+        "phpunit/phpunit": "^8.5 || ^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -29,12 +29,6 @@
         }
     },
     "config": {
-        "preferred-install": "dist",
-        "platform-check": false
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.1-dev"
-        }
+        "preferred-install": "dist"
     }
 }
