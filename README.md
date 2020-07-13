@@ -21,7 +21,7 @@ Security Core requires [PHP](https://php.net) 7.2-8.0.
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require graham-campbell/security-core
+$ composer require graham-campbell/security-core:^3.1
 ```
 
 
