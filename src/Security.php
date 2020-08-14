@@ -46,8 +46,8 @@ class Security
     /**
      * Create a new security instance.
      *
-     * @param string[]|null $evil
-     * @param string|null   $replacement
+     * @param string[]|array{attributes:string[], tags:string[]}|null $evil
+     * @param string|null                                             $replacement
      *
      * @return \GrahamCampbell\SecurityCore\Security
      */
@@ -60,10 +60,28 @@ class Security
         }
 
         if ($evil !== null) {
-            $antiXss->addEvilAttributes($evil);
+            self::addEvilOptions($antiXss, $evil);
         }
 
         return new self($antiXss);
+    }
+
+    /**
+     * Add the given evil options.
+     *
+     * @param \voku\helper\AntiXSS                               $antiXss
+     * @param string[]|array{attributes:string[], tags:string[]} $evil
+     *
+     * @return void
+     */
+    private static function addEvilOptions(AntiXSS $antiXss, array $evil)
+    {
+        if (isset($evil['attributes']) || isset($evil['tags'])) {
+            $antiXss->addEvilAttributes($evil['attributes'] ?? []);
+            $antiXss->addEvilHtmlTags($evil['tags'] ?? []);
+        } else {
+            $antiXss->addEvilAttributes($evil);
+        }
     }
 
     /**
