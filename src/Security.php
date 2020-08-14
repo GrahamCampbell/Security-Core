@@ -46,8 +46,8 @@ class Security
     /**
      * Create a new security instance.
      *
-     * @param string[]|array{attributes:string[], tags:string[]}|null $evil
-     * @param string|null                                             $replacement
+     * @param array|null  $evil
+     * @param string|null $replacement
      *
      * @return \GrahamCampbell\SecurityCore\Security
      */
@@ -69,8 +69,8 @@ class Security
     /**
      * Add the given evil options.
      *
-     * @param \voku\helper\AntiXSS                               $antiXss
-     * @param string[]|array{attributes:string[], tags:string[]} $evil
+     * @param \voku\helper\AntiXSS $antiXss
+     * @param array                $evil
      *
      * @return void
      */
