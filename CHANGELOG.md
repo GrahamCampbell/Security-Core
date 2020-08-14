@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.2 (14/08/2020)
+
+* Support specifying evil tags
+* Bumped minimum versions
+
+
 ## V3.1 (15/06/2020)
 
 * Provisional PHP 8.0 support
