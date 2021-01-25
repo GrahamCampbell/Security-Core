@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2.1 (25/01/2021)
+
+* Bumped minimum versions
+
+
 ## V3.2 (14/08/2020)
 
 * Support specifying evil tags
