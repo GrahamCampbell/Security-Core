@@ -118,7 +118,7 @@ class SecurityTest extends TestCase
             ],
             [
                 '<i<f<r<a<m<e><iframe/onload=confirm(1);></i>f>r>a>m>e>',
-                '<i&lt;f&lt;r&lt;a&lt;me>&lt;iframe/&gt;</i>f>r>a>m>e>',
+                '<i&lt;f&lt;r&lt;a&lt;m&lt;e>&lt;iframe/&gt;</i>f>r>a>m>e>',
             ],
             [
                 'http://www.<script abc>setTimeout(\'confirm(1)\',1)</script .com>',
@@ -231,7 +231,7 @@ class SecurityTest extends TestCase
             ],
             [
                 '<!--\\x3E<img src=xxx:x onerror=javascript:alert(1)> -->%0b'."\0",
-                '&lt;!--\x3E<img > --&gt;  ',
+                '&lt;!--\x3E<img > --&gt;',
             ],
             [
                 '--><!-- --\x3E> <img src=xxx:x onerror=javascript:alert(1)> -->',
