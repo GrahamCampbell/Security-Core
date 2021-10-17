@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2.2 (17/10/2021)
+
+* Provisional PHP 8.1 support
+
+
 ## V3.2.1 (25/01/2021)
 
 * Bumped minimum versions
