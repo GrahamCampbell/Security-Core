@@ -6,10 +6,6 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 ![Banner](https://user-images.githubusercontent.com/2829600/71477094-0f3c7780-27e0-11ea-8a35-139e4445155e.png)
 
 <p align="center">
-<a href="https://xscode.com/grahamcampbell/Security-Core"><img src="https://xscode.com/assets/promo-banner.svg" alt="Promo Banner"></img></a>
-</p>
-
-<p align="center">
 <a href="https://github.com/GrahamCampbell/Security-Core/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Security-Core/Tests?label=Tests&style=flat-square" alt="Build Status"></img></a>
 <a href="https://github.styleci.io/repos/163549667"><img src="https://github.styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
@@ -20,7 +16,7 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-Security Core requires [PHP](https://php.net) 7.2-8.0.
+Security Core requires [PHP](https://php.net) 7.2-8.1.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
@@ -52,7 +48,7 @@ For usage in Laravel, check out [Laravel Security](https://github.com/GrahamCamp
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/GrahamCampbell/Security-Core/security/policy).
+If you discover a security vulnerability within this package, please send an email to Graham Campbell at hello@gjcampbell.co.uk. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/GrahamCampbell/Security-Core/security/policy).
 
 
 ## License
