@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.2.5 || ^8.0",
         "voku/anti-xss": "~4.1.33",
-        "voku/portable-utf8": "^5.4.51"
+        "voku/portable-utf8": "^5.4.51 || ^6.0"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^3.0",
