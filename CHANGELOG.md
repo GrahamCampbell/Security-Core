@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.2.5 (UPCOMING)
+## V3.2.5 (07/02/2022)
 
 * Support `voku/portable-utf8` v6
 
