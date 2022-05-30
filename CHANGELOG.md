@@ -5,8 +5,8 @@ CHANGE LOG
 ## V3.3 (UPCOMING)
 
 * Dropped PHP < 7.4
-* Dropped `voku/portable-utf8` v5
-* Pinned to voku/anti-xss `~4.1.36`
+* Pinned to voku/portable-utf8 `^6.0.4`
+* Pinned to voku/anti-xss `~4.1.39`
 
 
 ## V3.2.5 (07/02/2022)
