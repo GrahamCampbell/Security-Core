@@ -21,7 +21,7 @@ This version requires [PHP](https://www.php.net/) 7.4-8.1.
 To get the latest version, simply require the project using [Composer](https://getcomposer.org/):
 
 ```bash
-$ composer require "graham-campbell/security-core:^3.2"
+$ composer require "graham-campbell/security-core:^3.3"
 ```
 
 

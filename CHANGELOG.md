@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.3 (UPCOMING)
+## V3.3 (30/05/2022)
 
 * Dropped PHP < 7.4
 * Pinned to voku/portable-utf8 `^6.0.4`
