@@ -25,7 +25,7 @@ use voku\helper\AntiXSS;
  */
 class SecurityTest extends TestCase
 {
-    public function snippetProvider(): array
+    public static function snippetProvider(): array
     {
         $cases = [
             [
@@ -102,7 +102,7 @@ class SecurityTest extends TestCase
             ],
             [
                 '<form/action=javascript&#x0003A;eval(setTimeout(confirm(1)))><input/type=submit>',
-                '&lt;form/action=(setTimeout&#40;confirm(1&#41;))&gt;&lt;input/type=submit&gt;',
+                '&lt;form/action=(setTimeout&#40;confirm&#40;1&#41;&#41;)&gt;&lt;input/type=submit&gt;',
             ],
             [
                 '<body/onload=this.onload=document.body.innerHTML=alert&lpar;1&rpar;>',
@@ -122,7 +122,7 @@ class SecurityTest extends TestCase
             ],
             [
                 'http://www.<script abc>setTimeout(\'confirm(1)\',1)</script .com>',
-                'http://www.setTimeout&#40;\'confirm(1&#41;\',1).com>',
+                'http://www.setTimeout&#40;\'confirm&#40;1&#41;\',1&#41;.com>',
             ],
             [
                 '<style/onload    =    !-alert&#x28;1&#x29;>',
@@ -253,7 +253,7 @@ class SecurityTest extends TestCase
     {
         $return = Security::create()->clean($input);
 
-        $this->assertSame($output, $return);
+        self::assertSame($output, $return);
     }
 
     /**
@@ -274,7 +274,7 @@ class SecurityTest extends TestCase
 
         $return = Security::create($evil)->clean($input);
 
-        $this->assertSame($output, $return);
+        self::assertSame($output, $return);
     }
 
     public function testCleanArray(): void
@@ -283,7 +283,7 @@ class SecurityTest extends TestCase
 
         $return = $security->clean(['<script>', '<li test="alert();">', '123', ['abc']]);
 
-        $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc']], $return);
+        self::assertSame(['[removed]', '<li [removed]>', '123', ['abc']], $return);
     }
 
     public function testCleanDeeplyNestedArray(): void
@@ -292,7 +292,7 @@ class SecurityTest extends TestCase
 
         $return = $security->clean(['<script>', '<li test="alert();">', '123', ['abc', [[['<li test="alert();">']]]]]);
 
-        $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc', [[['<li [removed]>']]]]], $return);
+        self::assertSame(['[removed]', '<li [removed]>', '123', ['abc', [[['<li [removed]>']]]]], $return);
     }
 
     public function testCleanWithCustomAntiXss(): void
@@ -308,6 +308,6 @@ class SecurityTest extends TestCase
 
         $return = $security->clean(['<script>', 'testFoo', '123', ['<abc style="border: 0;">']]);
 
-        $this->assertSame(['[removed]', '[removed]', '123', ['<abc style="border: 0;">']], $return);
+        self::assertSame(['[removed]', '[removed]', '123', ['<abc style="border: 0;">']], $return);
     }
 }
