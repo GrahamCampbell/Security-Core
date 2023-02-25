@@ -6,7 +6,7 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 ![Banner](https://user-images.githubusercontent.com/2829600/71477094-0f3c7780-27e0-11ea-8a35-139e4445155e.png)
 
 <p align="center">
-<a href="https://github.com/GrahamCampbell/Security-Core/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Security-Core/Tests?label=Tests&style=flat-square" alt="Build Status"></img></a>
+<a href="https://github.com/GrahamCampbell/Security-Core/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/actions/workflow/status/GrahamCampbell/Security-Core/tests.yml?label=Tests&style=flat-square" alt="Build Status"></img></a>
 <a href="https://github.styleci.io/repos/163549667"><img src="https://github.styleci.io/repos/163549667/shield" alt="StyleCI Status"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
 <a href="https://packagist.org/packages/graham-campbell/security-core"><img src="https://img.shields.io/packagist/dt/graham-campbell/security-core?style=flat-square" alt="Packagist Downloads"></img></a>
@@ -16,12 +16,12 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-This version requires [PHP](https://www.php.net/) 7.4-8.1.
+This version requires [PHP](https://www.php.net/) 7.4-8.2.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org/):
 
 ```bash
-$ composer require "graham-campbell/security-core:^3.3"
+$ composer require "graham-campbell/security-core:^3.4"
 ```
 
 

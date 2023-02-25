@@ -29,7 +29,7 @@ class Security
      *
      * @var \voku\helper\AntiXSS
      */
-    private $antiXss;
+    private AntiXSS $antiXss;
 
     /**
      * Create a new security instance.
@@ -51,7 +51,7 @@ class Security
      *
      * @return \GrahamCampbell\SecurityCore\Security
      */
-    public static function create(array $evil = null, string $replacement = null)
+    public static function create(array $evil = null, string $replacement = null): self
     {
         $antiXss = new AntiXSS();
 
@@ -74,7 +74,7 @@ class Security
      *
      * @return void
      */
-    private static function addEvilOptions(AntiXSS $antiXss, array $evil)
+    private static function addEvilOptions(AntiXSS $antiXss, array $evil): void
     {
         if (isset($evil['attributes']) || isset($evil['tags'])) {
             $antiXss->addEvilAttributes($evil['attributes'] ?? []);

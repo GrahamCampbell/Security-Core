@@ -25,7 +25,7 @@ use voku\helper\AntiXSS;
  */
 class SecurityTest extends TestCase
 {
-    public function snippetProvider()
+    public function snippetProvider(): array
     {
         $cases = [
             [
@@ -249,7 +249,7 @@ class SecurityTest extends TestCase
     /**
      * @dataProvider snippetProvider
      */
-    public function testCleanString(string $input, string $output)
+    public function testCleanString(string $input, string $output): void
     {
         $return = Security::create()->clean($input);
 
@@ -259,7 +259,7 @@ class SecurityTest extends TestCase
     /**
      * @dataProvider snippetProvider
      */
-    public function testCleanStringWithExplictEvilList(string $input, string $output)
+    public function testCleanStringWithExplictEvilList(string $input, string $output): void
     {
         $evil = [
             '(?<!\w)on\w*',
@@ -277,7 +277,7 @@ class SecurityTest extends TestCase
         $this->assertSame($output, $return);
     }
 
-    public function testCleanArray()
+    public function testCleanArray(): void
     {
         $security = Security::create(['test'], '[removed]');
 
@@ -286,7 +286,7 @@ class SecurityTest extends TestCase
         $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc']], $return);
     }
 
-    public function testCleanDeeplyNestedArray()
+    public function testCleanDeeplyNestedArray(): void
     {
         $security = Security::create(['test'], '[removed]');
 
@@ -295,7 +295,7 @@ class SecurityTest extends TestCase
         $this->assertSame(['[removed]', '<li [removed]>', '123', ['abc', [[['<li [removed]>']]]]], $return);
     }
 
-    public function testCleanWithCustomAntiXss()
+    public function testCleanWithCustomAntiXss(): void
     {
         $replacer = '[removed]';
 

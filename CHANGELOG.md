@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V4.0 (UPCOMING)
+
+* Added support for PHP 8.2
+* Added property and return types
+
+
 ## V3.3 (30/05/2022)
 
 * Dropped PHP < 7.4
