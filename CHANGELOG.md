@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V4.0 (25/02/2023)
+## V4.0 (26/02/2023)
 
 * Support only PHP 8.0-8.2
 * Added property and return types
