@@ -25,11 +25,6 @@ $ composer require "graham-campbell/security-core:^4.0"
 ```
 
 
-## V1 vs V2/3
-
-V1 was a port of the security class from [CodeIgniter 3](https://codeigniter.com/). CodeIgniter 4 will not be keeping this class, and so V2/3 now functions as a wrapper of [voku/anti-xss](https://github.com/voku/anti-xss), which superseeds CodeIgniter's security class.
-
-
 ## Usage
 
 To sanitize your string, simply call the `clean` method on the `Security` class.
