@@ -91,7 +91,7 @@ class Security
      *
      * @return string|array
      */
-    public function clean($input)
+    public function clean($input): string|array
     {
         $output = $this->antiXss->xss_clean($input);
 
@@ -110,7 +110,7 @@ class Security
      *
      * @return string|array
      */
-    private static function cleanInvisibleCharacters($input)
+    private static function cleanInvisibleCharacters($input): string|array
     {
         if (is_array($input)) {
             foreach ($input as $key => &$value) {

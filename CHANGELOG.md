@@ -4,7 +4,7 @@ CHANGE LOG
 
 ## V4.0 (25/02/2023)
 
-* Added support for PHP 8.2
+* Support only PHP 8.0-8.2
 * Added property and return types
 
 
