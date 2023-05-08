@@ -241,6 +241,10 @@ class SecurityTest extends TestCase
                 '<svg/onload=alert(1)',
                 '&lt;svg/',
             ],
+            [
+                '<image src=x only=1 on\verror=(confirm)(1)>',
+                '<image src=x only=1 onerror=(confirm)(1)>',
+            ]
         ];
 
         return $cases;
