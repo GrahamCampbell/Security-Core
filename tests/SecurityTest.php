@@ -242,7 +242,7 @@ class SecurityTest extends TestCase
                 '&lt;svg/',
             ],
             [
-                '<image src=x only=1 on\verror=(confirm)(1)>',
+                "<image src=x only=1 on\verror=(confirm)(1)>",
                 '<image src=x only=1 onerror=(confirm)(1)>',
             ]
         ];
