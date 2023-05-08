@@ -218,7 +218,7 @@ class SecurityTest extends TestCase
 
             ],
             [
-                '<foo prefixOnAttribute="bar">%0b'."\0",
+                '<foo prefixOnAttribute="bar">',
                 '<foo prefixOnAttribute="bar">',
             ],
             [
@@ -241,6 +241,11 @@ class SecurityTest extends TestCase
                 '<svg/onload=alert(1)',
                 '&lt;svg/',
             ],
+            [
+                '<image src=x on\verror=(confirm)(1)>',
+                '<image src=x on\verror=(confirm)(1)>',
+            ],
+            
         ];
 
         return $cases;

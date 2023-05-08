@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace GrahamCampbell\SecurityCore;
 
 use voku\helper\AntiXSS;
-use voku\helper\UTF8;
 
 /**
  * This is the security class.
@@ -76,9 +75,16 @@ class Security
      */
     private static function addEvilOptions(AntiXSS $antiXss, array $evil): void
     {
-        if (isset($evil['attributes']) || isset($evil['tags'])) {
+        $conditions = isset($evil['attributes']) || isset($evil['tags']) || isset($evil['regex']) 
+        || isset($evil['events']) || isset($evil['strAfterwards']) || isset($evil['doNotCloseHtmlTags']);
+
+        if ($conditions) {
             $antiXss->addEvilAttributes($evil['attributes'] ?? []);
             $antiXss->addEvilHtmlTags($evil['tags'] ?? []);
+            $antiXss->addNeverAllowedRegex($evil['regex'] ?? []);
+            $antiXss->addNeverAllowedOnEventsAfterwards($evil['events'] ?? []);
+            $antiXss->addNeverAllowedStrAfterwards($evil['strAfterwards'] ?? []);
+            $antiXss->addDoNotCloseHtmlTags($evil['doNotCloseHtmlTags'] ?? []);
         } else {
             $antiXss->addEvilAttributes($evil);
         }
@@ -95,31 +101,6 @@ class Security
     {
         $output = $this->antiXss->xss_clean($input);
 
-        // remove invisible chars anyway
-        if ($this->antiXss->isXssFound() === false) {
-            return self::cleanInvisibleCharacters($output);
-        }
-
         return $output;
-    }
-
-    /**
-     * Clean invisible characters from the input.
-     *
-     * @param string|array $input
-     *
-     * @return string|array
-     */
-    private static function cleanInvisibleCharacters($input): string|array
-    {
-        if (is_array($input)) {
-            foreach ($input as $key => &$value) {
-                $value = self::cleanInvisibleCharacters($value);
-            }
-
-            return $input;
-        }
-
-        return UTF8::remove_invisible_characters($input, true);
     }
 }
