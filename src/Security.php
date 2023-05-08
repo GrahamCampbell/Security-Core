@@ -95,31 +95,6 @@ class Security
     {
         $output = $this->antiXss->xss_clean($input);
 
-        // remove invisible chars anyway
-        if ($this->antiXss->isXssFound() === false) {
-            return self::cleanInvisibleCharacters($output);
-        }
-
         return $output;
-    }
-
-    /**
-     * Clean invisible characters from the input.
-     *
-     * @param string|array $input
-     *
-     * @return string|array
-     */
-    private static function cleanInvisibleCharacters($input): string|array
-    {
-        if (is_array($input)) {
-            foreach ($input as $key => &$value) {
-                $value = self::cleanInvisibleCharacters($value);
-            }
-
-            return $input;
-        }
-
-        return UTF8::remove_invisible_characters($input, true);
     }
 }
