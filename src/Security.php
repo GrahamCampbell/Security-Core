@@ -104,7 +104,10 @@ class Security
 
         // remove invisible chars anyway
         if ($this->antiXss->isXssFound() === false) {
-            return self::cleanInvisibleCharacters($output);
+            $newOutput = self::cleanInvisibleCharacters($output);
+
+            // sometimes we get xss issues after clean invisible characters so we should check the new output
+            return $newOutput == $output ? $output : $this->antiXss->xss_clean($newOutput);
         }
 
         return $output;
