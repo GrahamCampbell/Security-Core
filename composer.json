@@ -12,12 +12,12 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "voku/anti-xss": "~4.1.41",
-        "voku/portable-utf8": "^6.0.12"
+        "voku/anti-xss": "~4.1.42",
+        "voku/portable-utf8": "^6.0.13"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^4.0",
-        "phpunit/phpunit": "^9.6.3 || ^10.0.12"
+        "graham-campbell/analyzer": "^4.1",
+        "phpunit/phpunit": "^9.6.15 || ^10.5.1"
     },
     "autoload": {
         "psr-4": {
