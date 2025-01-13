@@ -51,7 +51,7 @@ class Security
      *
      * @return \GrahamCampbell\SecurityCore\Security
      */
-    public static function create(array $evil = null, string $replacement = null): self
+    public static function create(?array $evil = null, ?string $replacement = null): self
     {
         $antiXss = new AntiXSS();
 

@@ -16,7 +16,7 @@ Security Core was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-This version requires [PHP](https://www.php.net/) 8.0-8.3.
+This version requires [PHP](https://www.php.net/) 8.0-8.4.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org/):
 
