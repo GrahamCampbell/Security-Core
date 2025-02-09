@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V5.0 (XX/02/2025)
+
+* Dropped PHP 8.0 support
+
+
 ## V4.0.2 (13/01/2025)
 
 * Official PHP 8.4 support

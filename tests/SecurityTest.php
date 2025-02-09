@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Tests\SecurityCore;
 
 use GrahamCampbell\SecurityCore\Security;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use voku\helper\AntiXSS;
 
@@ -246,9 +247,7 @@ class SecurityTest extends TestCase
         return $cases;
     }
 
-    /**
-     * @dataProvider snippetProvider
-     */
+    #[DataProvider('snippetProvider')]
     public function testCleanString(string $input, string $output): void
     {
         $return = Security::create()->clean($input);
@@ -256,9 +255,7 @@ class SecurityTest extends TestCase
         self::assertSame($output, $return);
     }
 
-    /**
-     * @dataProvider snippetProvider
-     */
+    #[DataProvider('snippetProvider')]
     public function testCleanStringWithExplictEvilList(string $input, string $output): void
     {
         $evil = [
