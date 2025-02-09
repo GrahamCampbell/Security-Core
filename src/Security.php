@@ -25,22 +25,15 @@ use voku\helper\UTF8;
 class Security
 {
     /**
-     * The anti XSS instance.
-     *
-     * @var \voku\helper\AntiXSS
-     */
-    private AntiXSS $antiXss;
-
-    /**
      * Create a new security instance.
      *
      * @param \voku\helper\AntiXSS $antiXss
      *
      * @return void
      */
-    public function __construct(AntiXSS $antiXss)
-    {
-        $this->antiXss = $antiXss;
+    public function __construct(
+        private readonly AntiXSS $antiXss,
+    ) {
     }
 
     /**
